@@ -38,9 +38,4 @@ export default {
 .fade-leave-active {
     transition: opacity 1s;
 }
-
-.fade-enter-to,
-.fade-leave {
-    opacity: 1;
-}
 </style>
