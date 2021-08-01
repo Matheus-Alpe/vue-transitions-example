@@ -29,30 +29,18 @@ export default {
 
 <style scoped>
 
-/* Transition In */
-.fade-enter {
-    opacity: 0;
-}
-.fade-enter-active {
-    transition: opacity 1s;
-}
-
-.fade-enter-to {
-    opacity: 1;
-}
-
-/* Transition Out */
-.fade-leave {
-    opacity: 1;
-    /* transform: translateX(0); */
-}
-.fade-leave-active {
-    transition: opacity 1s;
-    /* transition: transform 2s; */
-}
+/* Transition In & Out*/
+.fade-enter,
 .fade-leave-to {
     opacity: 0;
-    /* transform: translateX(-200%); */
+}
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 1s;
 }
 
+.fade-enter-to,
+.fade-leave {
+    opacity: 1;
+}
 </style>
