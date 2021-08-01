@@ -38,7 +38,7 @@ export default {
 
 <style>
 :root {
-    --transition-duration: .5s;
+    --transition-duration: .7s;
 }
 
 .title {
@@ -88,13 +88,13 @@ export default {
 }
 
 .slide-animation-enter-active {
-    animation: slide var(--transition-duration);
-    transition: opacity var(--transition-duration);
+    animation: slide var(--transition-duration) cubic-bezier(.72,-0.03,.78,1.07);
+    transition: opacity var(--transition-duration) cubic-bezier(.72,-0.03,.78,1.07);
 }
 
 .slide-animation-leave-active {
     animation: slide var(--transition-duration) reverse;
-    transition: opacity 2s;
+    transition: opacity var(--transition-duration);
 }
 
 @keyframes slide {
