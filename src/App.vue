@@ -12,6 +12,7 @@
             <TransitionExample transition-name="zoom" transition-type="transition"/>
             <TransitionExample transition-name="slide-transition" transition-type="transition"/>
             <TransitionExample transition-name="slide-animation" transition-type="animation"/>
+            <TransitionExample :custom-css="true" transition-name="custom-css"/>
         </div>
     </div>
 </template>

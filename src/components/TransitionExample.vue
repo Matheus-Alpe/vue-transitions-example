@@ -3,12 +3,28 @@
         <h3 class="d-inline-block title">{{ capitalizeName }}</h3>
         <button class="btn btn-primary btn-sm mb-3" @click="mostrar = !mostrar">Alternar</button>
     
-        <!-- <transition :name="transitionName" :type="transitionType" :duration="{ enter: 1200, leave: 500 }">  -->
-        <transition :name="transitionName" :type="transitionType" > 
+        <transition v-if="customCss"
+            enter-class=""
+            enter-active-class="animate__animated animate__bounceInLeft"
+            enter-to-class=""
+            
+            leave-class=""
+            leave-active-class="animate__animated animate__bounceOutDown"
+            leave-to-class=""
+        >
             <div 
                 class="alert alert-primary" 
                 v-if="mostrar"
             >v-if - Animações no Vue</div>
+        </transition>
+        <!-- <transition :name="transitionName" :type="transitionType" :duration="{ enter: 1200, leave: 500 }">  -->
+        <transition v-else :name="transitionName" :type="transitionType" > 
+            <div 
+                class="alert alert-primary" 
+                v-if="mostrar"
+            >
+                v-if - Animações no Vue
+            </div>
         </transition>
         <hr>
     </div>
@@ -17,6 +33,7 @@
 <script>
 export default {
     props: {
+        customCss: Boolean,
         transitionName: String,
         transitionType: String,
     },
@@ -35,10 +52,13 @@ export default {
 }
 </script>
 
-
 <style>
 :root {
     --transition-duration: .7s;
+}
+
+body {
+    overflow: hidden;
 }
 
 .title {
