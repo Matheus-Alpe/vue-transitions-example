@@ -8,17 +8,51 @@
         </div>
 
         <div class="container">
+            <button class="btn btn-primary mb-3" @click="mostrar = !mostrar">Alternar</button>
             
+            <transition> 
+                <div class="alert alert-primary" v-if="mostrar">v-if - Animações no Vue</div>
+            </transition>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-
+    data() {
+        return {
+            mostrar: true
+        }
+    }
 }
 </script>
 
-<style>
+<style scoped>
+
+/* Transition In */
+.v-enter {
+    opacity: 0;
+}
+.v-enter-active {
+    transition: opacity 1s;
+}
+
+.v-enter-to {
+    opacity: 1;
+}
+
+/* Transition Out */
+.v-leave {
+    opacity: 1;
+    /* transform: translateX(0); */
+}
+.v-leave-active {
+    transition: opacity 1s;
+    /* transition: transform 2s; */
+}
+.v-leave-to {
+    opacity: 0;
+    /* transform: translateX(-200%); */
+}
 
 </style>
