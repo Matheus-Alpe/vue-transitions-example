@@ -3,7 +3,7 @@
         <h3 class="d-inline-block title">{{ capitalizeName }}</h3>
         <button class="btn btn-primary btn-sm mb-3" @click="mostrar = !mostrar">Alternar</button>
     
-        <transition :name="animationName" type="animation"> 
+        <transition :name="transitionName" :type="transitionType"> 
             <div class="alert alert-primary" v-if="mostrar">v-if - Animações no Vue</div>
         </transition>
         <hr>
@@ -13,7 +13,8 @@
 <script>
 export default {
     props: {
-        animationName: String
+        transitionName: String,
+        transitionType: String,
     },
 
     data() {
@@ -24,7 +25,7 @@ export default {
 
     computed: {
         capitalizeName() {
-            return `${this.animationName[0].toUpperCase() + this.animationName.substring(1)}: `
+            return `${this.transitionName[0].toUpperCase() + this.transitionName.substring(1)}: `
         }
     }
 }

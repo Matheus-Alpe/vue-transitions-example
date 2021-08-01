@@ -8,10 +8,10 @@
         </div>
 
         <div class="container">
-            <TransitionExample animation-name="fade"/>
-            <TransitionExample animation-name="zoom"/>
-            <TransitionExample animation-name="slide-transition"/>
-            <TransitionExample animation-name="slide-animation"/>
+            <TransitionExample transition-name="fade" transition-type="transition"/>
+            <TransitionExample transition-name="zoom" transition-type="transition"/>
+            <TransitionExample transition-name="slide-transition" transition-type="transition"/>
+            <TransitionExample transition-name="slide-animation" transition-type="animation"/>
         </div>
     </div>
 </template>
