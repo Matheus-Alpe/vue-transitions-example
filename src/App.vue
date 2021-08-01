@@ -10,7 +10,7 @@
         <div class="container">
             <button class="btn btn-primary mb-3" @click="mostrar = !mostrar">Alternar</button>
             
-            <transition> 
+            <transition name="fade"> 
                 <div class="alert alert-primary" v-if="mostrar">v-if - Animações no Vue</div>
             </transition>
         </div>
@@ -30,27 +30,27 @@ export default {
 <style scoped>
 
 /* Transition In */
-.v-enter {
+.fade-enter {
     opacity: 0;
 }
-.v-enter-active {
+.fade-enter-active {
     transition: opacity 1s;
 }
 
-.v-enter-to {
+.fade-enter-to {
     opacity: 1;
 }
 
 /* Transition Out */
-.v-leave {
+.fade-leave {
     opacity: 1;
     /* transform: translateX(0); */
 }
-.v-leave-active {
+.fade-leave-active {
     transition: opacity 1s;
     /* transition: transform 2s; */
 }
-.v-leave-to {
+.fade-leave-to {
     opacity: 0;
     /* transform: translateX(-200%); */
 }
