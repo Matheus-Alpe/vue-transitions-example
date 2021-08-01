@@ -3,7 +3,7 @@
         <h3 class="d-inline-block title">{{ capitalizeName }}</h3>
         <button class="btn btn-primary btn-sm mb-3" @click="mostrar = !mostrar">Alternar</button>
     
-        <transition :name="animationName"> 
+        <transition :name="animationName" type="animation"> 
             <div class="alert alert-primary" v-if="mostrar">v-if - Animações no Vue</div>
         </transition>
         <hr>
@@ -89,7 +89,7 @@ export default {
 
 .slide-animation-leave-active {
     animation: slide var(--transition-duration) reverse;
-    transition: opacity var(--transition-duration);
+    transition: opacity 2s;
 }
 
 @keyframes slide {
