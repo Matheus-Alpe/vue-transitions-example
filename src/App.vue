@@ -8,34 +8,20 @@
         </div>
 
         <div class="container">
-            <button class="btn btn-primary mb-3" @click="mostrar = !mostrar">Alternar</button>
-            
-            <transition name="fade"> 
-                <div class="alert alert-primary" v-if="mostrar">v-if - Animações no Vue</div>
-            </transition>
+            <TransitionExample animation-name="fade"/>
+            <TransitionExample animation-name="zoom"/>
+            <TransitionExample animation-name="slide-transition"/>
+            <TransitionExample animation-name="slide-animation"/>
         </div>
     </div>
 </template>
 
 <script>
+import TransitionExample from './components/TransitionExample.vue'
+
 export default {
-    data() {
-        return {
-            mostrar: true
-        }
-    }
+    components: {
+        TransitionExample
+    },
 }
 </script>
-
-<style scoped>
-
-/* Transition In & Out*/
-.fade-enter,
-.fade-leave-to {
-    opacity: 0;
-}
-.fade-enter-active,
-.fade-leave-active {
-    transition: opacity 1s;
-}
-</style>
