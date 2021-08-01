@@ -3,8 +3,12 @@
         <h3 class="d-inline-block title">{{ capitalizeName }}</h3>
         <button class="btn btn-primary btn-sm mb-3" @click="mostrar = !mostrar">Alternar</button>
     
-        <transition :name="transitionName" :type="transitionType"> 
-            <div class="alert alert-primary" v-if="mostrar">v-if - Animações no Vue</div>
+        <!-- <transition :name="transitionName" :type="transitionType" :duration="{ enter: 1200, leave: 500 }">  -->
+        <transition :name="transitionName" :type="transitionType" > 
+            <div 
+                class="alert alert-primary" 
+                v-if="mostrar"
+            >v-if - Animações no Vue</div>
         </transition>
         <hr>
     </div>
