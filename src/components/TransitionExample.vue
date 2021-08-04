@@ -17,6 +17,22 @@
                 v-if="mostrar"
             >v-if - Animações no Vue</div>
         </transition>
+        <transition v-else-if="customJs"
+            @before-enter="beforeEnter"
+            @enter="enter"
+            @after-enter="afterEnter"
+            @enter-cancelled="enterCancelled"
+
+            @before-leave="beforeLeave"
+            @leave="leave"
+            @after-leave="afterLeave"
+            @leave-cancelled="leaveCancelled"
+        >
+            <div 
+                class="alert alert-primary" 
+                v-if="mostrar"
+            >v-if - Animações no Vue</div>
+        </transition>
         <!-- <transition :name="transitionName" :type="transitionType" :duration="{ enter: 1200, leave: 500 }">  -->
         <transition v-else :name="transitionName" :type="transitionType" > 
             <div 
@@ -34,6 +50,7 @@
 export default {
     props: {
         customCss: Boolean,
+        customJs: Boolean,
         transitionName: String,
         transitionType: String,
     },
@@ -48,6 +65,35 @@ export default {
         capitalizeName() {
             return `${this.transitionName[0].toUpperCase() + this.transitionName.substring(1)}: `
         }
+    },
+
+    methods: {
+        beforeEnter(element) {
+            console.log('beforeEnter', element)
+        },
+        enter(element, done) {
+            console.log('enter', element)
+            done()
+        },
+        afterEnter(element) {
+            console.log('afterEnter', element)
+        },
+        enterCancelled(element) {
+            console.log('enterCancelled', element)
+        },
+        beforeLeave(element) {
+            console.log('beforeLeave', element)
+        },
+        leave(element, done) {
+            console.log('leave', element)
+            done()
+        },
+        afterLeave(element) {
+            console.log('afterLeave', element)
+        },
+        leaveCancelled(element) {
+            console.log('leaveCancelled', element)
+        },
     }
 }
 </script>
