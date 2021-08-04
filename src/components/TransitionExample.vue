@@ -27,6 +27,8 @@
             @leave="leave"
             @after-leave="afterLeave"
             @leave-cancelled="leaveCancelled"
+
+            :css="false"
         >
             <div 
                 class="alert alert-primary" 
