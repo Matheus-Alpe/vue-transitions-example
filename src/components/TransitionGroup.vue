@@ -73,7 +73,8 @@ export default {
 }
 
 .list-enter-active,
-.list-leave-active {
+.list-leave-active,
+.list-move {
     transition: all .5s;
 }
 
