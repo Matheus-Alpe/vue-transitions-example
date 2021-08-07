@@ -55,7 +55,7 @@ export default {
             if (!novoItem) return
             const indice = Math.floor(Math.random() * this.tecnologias.length)
             this.tecnologias.splice(indice, 0, novoItem)
-            this.$refs.value = ''
+            this.$refs.inputItem.value = ''
         },
 
         remover(indice) {
@@ -76,6 +76,11 @@ export default {
 .list-leave-active,
 .list-move {
     transition: all .5s;
+}
+
+.list-leave-active {
+    position: absolute;
+    width: calc(100% - 100px);
 }
 
 </style>
