@@ -14,16 +14,15 @@
                 </select>
             </div>
             <div class="form-group">
-                <label>Mensagem:</label>
-                <select class="form-control" v-model="alertaAtual">
-                    <option value="info">Informação</option>
-                    <option value="warning">Warning</option>
-                    <option value="success">Sucesso</option>
+                <label>Component:</label>
+                <select class="form-control" v-model="componenteSelecionado">
+                    <option value="AppHome">Home</option>
+                    <option value="AppSobre">Sobre</option>
                 </select>
             </div>
             <!-- <transition :name="animaticaoSelecionada" appear mode="in-out">  -->
             <transition :name="animaticaoSelecionada" appear mode="out-in"> 
-                <div :class="classesAlerta" :key="alertaAtual">Animações no Vue</div>
+                <component :is="componenteSelecionado"></component>
             </transition>
         </div>
 
@@ -88,6 +87,11 @@
 
 <script>
 export default {
+    components: {
+        AppHome: () => import('./Home.vue'),
+        AppSobre: () => import('./Sobre.vue')
+    },
+
     props: {
         select: Boolean,
         customCss: Boolean,
@@ -100,7 +104,8 @@ export default {
         return {
             mostrar: this.customJs || this.customCss,
             animaticaoSelecionada: 'fade',
-            alertaAtual: 'info'
+            alertaAtual: 'info',
+            componenteSelecionado: 'AppHome'
         }
     },
 
