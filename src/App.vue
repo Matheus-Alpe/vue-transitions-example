@@ -8,6 +8,7 @@
         </div>
 
         <div class="container">
+            <TransitionExample select transition-name="select transition"/>
             <TransitionExample transition-name="fade" transition-type="transition"/>
             <TransitionExample transition-name="zoom" transition-type="transition"/>
             <TransitionExample transition-name="slide-transition" transition-type="transition"/>

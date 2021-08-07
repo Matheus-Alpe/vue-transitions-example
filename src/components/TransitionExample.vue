@@ -3,7 +3,26 @@
         <h3 class="d-inline-block title">{{ capitalizeName }}</h3>
         <button class="btn btn-primary btn-sm mb-3" @click="mostrar = !mostrar">Alternar</button>
     
-        <transition v-if="customCss"
+        <div v-if="select">
+            <div class="form-group">
+                <select class="form-control" v-model="animaticaoSelecionada">
+                    <option value="fade">Fade</option>
+                    <option value="zoom">Zoom</option>
+                    <option value="slide-transition">Slide Transition</option>
+                    <option value="slide-animation">Slide Animation</option>
+                </select>
+            </div>
+            <transition :name="animaticaoSelecionada" > 
+                <div 
+                    class="alert alert-primary" 
+                    v-if="mostrar"
+                >
+                    v-if - Animações no Vue
+                </div>
+            </transition>
+        </div>
+
+        <transition v-else-if="customCss"
 
             appear
             appear-class=""
@@ -28,6 +47,7 @@
                 v-if="mostrar"
             >v-if - Animações no Vue</div>
         </transition>
+
         <transition v-else-if="customJs"
             appear
             @before-enter="beforeEnter"
@@ -47,6 +67,7 @@
                 v-if="mostrar"
             >v-if - Animações no Vue</div>
         </transition>
+
         <!-- <transition :name="transitionName" :type="transitionType" :duration="{ enter: 1200, leave: 500 }">  -->
         <transition v-else :name="transitionName" :type="transitionType" > 
             <div 
@@ -63,6 +84,7 @@
 <script>
 export default {
     props: {
+        select: Boolean,
         customCss: Boolean,
         customJs: Boolean,
         transitionName: String,
@@ -71,7 +93,8 @@ export default {
 
     data() {
         return {
-            mostrar: this.customJs || this.customCss
+            mostrar: this.customJs || this.customCss,
+            animaticaoSelecionada: ''
         }
     },
 
@@ -166,10 +189,6 @@ export default {
 <style>
 :root {
     --transition-duration: .7s;
-}
-
-body {
-    overflow: hidden;
 }
 
 .title {
