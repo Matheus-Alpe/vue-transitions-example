@@ -12,13 +12,11 @@
                     <option value="slide-animation">Slide Animation</option>
                 </select>
             </div>
-            <transition :name="animaticaoSelecionada" > 
-                <div 
-                    class="alert alert-primary" 
-                    v-if="mostrar"
-                >
-                    v-if - Animações no Vue
+            <transition :name="animaticaoSelecionada" appear> 
+                <div class="alert alert-info" v-if="mostrar" key="info">
+                    v-if - Animações no Vue (informação)
                 </div>
+                <div class="alert alert-success" v-else key="success">Animações no Vue (success)</div>
             </transition>
         </div>
 
@@ -94,7 +92,7 @@ export default {
     data() {
         return {
             mostrar: this.customJs || this.customCss,
-            animaticaoSelecionada: ''
+            animaticaoSelecionada: 'fade'
         }
     },
 
