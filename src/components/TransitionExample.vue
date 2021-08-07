@@ -12,7 +12,8 @@
                     <option value="slide-animation">Slide Animation</option>
                 </select>
             </div>
-            <transition :name="animaticaoSelecionada" appear> 
+            <!-- <transition :name="animaticaoSelecionada" appear mode="in-out">  -->
+            <transition :name="animaticaoSelecionada" appear mode="out-in"> 
                 <div class="alert alert-info" v-if="mostrar" key="info">
                     v-if - Animações no Vue (informação)
                 </div>
