@@ -10,6 +10,11 @@
             appear-active-class="animate__animated animate__flipInY"
             appear-to-class=""
 
+            @before-appear="beforeAppear"
+            @appear="appear"
+            @after-appear="afterAppear"
+            @appear-cancelled="appearCancelled"
+
             enter-class=""
             enter-active-class="animate__animated animate__bounceInLeft"
             enter-to-class=""
@@ -77,6 +82,23 @@ export default {
     },
 
     methods: {
+        beforeAppear(element) {
+            console.log('beforeAppear', element)
+        },
+
+        appear(element, done) {
+            console.log('appear', element)
+            done()
+        },
+
+        afterAppear(element) {
+            console.log('afterAppear', element)
+        },
+
+        appearCancelled(element) {
+            console.log('appearCancelled', element)
+        },
+
         beforeEnter(element) {
             console.log('beforeEnter')
             element.style.opacity = 0
