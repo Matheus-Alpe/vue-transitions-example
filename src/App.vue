@@ -8,26 +8,32 @@
         </div>
 
         <div class="container">
+            
+            <TransitionState/>
             <TransitionGroup/>
-            <!-- <TransitionExample select transition-name="select transition"/>
+            <TransitionExample select transition-name="select transition"/>
             <TransitionExample transition-name="fade" transition-type="transition"/>
             <TransitionExample transition-name="zoom" transition-type="transition"/>
             <TransitionExample transition-name="slide-transition" transition-type="transition"/>
             <TransitionExample transition-name="slide-animation" transition-type="animation"/>
             <TransitionExample custom-css transition-name="custom-css"/>
-            <TransitionExample custom-js transition-name="custom-js"/> -->
+            <TransitionExample custom-js transition-name="custom-js"/>
         </div>
+        
+        <hr>
     </div>
 </template>
 
 <script>
-// import TransitionExample from './components/TransitionExample.vue'
+import TransitionExample from './components/TransitionExample.vue'
 import TransitionGroup from './components/TransitionGroup.vue'
+import TransitionState from './components/TransitionState.vue'
 
 export default {
     components: {
-        // TransitionExample,
-        TransitionGroup
+        TransitionExample,
+        TransitionGroup,
+        TransitionState
     },
 }
 </script>

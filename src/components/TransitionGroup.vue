@@ -42,6 +42,7 @@
 
         </transition-group>
 
+        <hr>
     </div>
 </template>
 
