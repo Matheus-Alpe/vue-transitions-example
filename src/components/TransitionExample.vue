@@ -1,10 +1,11 @@
 <template>
     <div class="item">
         <h3 class="d-inline-block title">{{ capitalizeName }}</h3>
-        <button class="btn btn-primary btn-sm mb-3" @click="mostrar = !mostrar">Alternar</button>
+        <button v-if="!select" class="btn btn-primary btn-sm mb-3" @click="mostrar = !mostrar">Alternar</button>
     
         <div v-if="select">
             <div class="form-group">
+                <label>Animações:</label>
                 <select class="form-control" v-model="animaticaoSelecionada">
                     <option value="fade">Fade</option>
                     <option value="zoom">Zoom</option>
@@ -12,12 +13,17 @@
                     <option value="slide-animation">Slide Animation</option>
                 </select>
             </div>
+            <div class="form-group">
+                <label>Mensagem:</label>
+                <select class="form-control" v-model="alertaAtual">
+                    <option value="info">Informação</option>
+                    <option value="warning">Warning</option>
+                    <option value="success">Sucesso</option>
+                </select>
+            </div>
             <!-- <transition :name="animaticaoSelecionada" appear mode="in-out">  -->
             <transition :name="animaticaoSelecionada" appear mode="out-in"> 
-                <div class="alert alert-info" v-if="mostrar" key="info">
-                    v-if - Animações no Vue (informação)
-                </div>
-                <div class="alert alert-success" v-else key="success">Animações no Vue (success)</div>
+                <div :class="classesAlerta" :key="alertaAtual">Animações no Vue</div>
             </transition>
         </div>
 
@@ -93,13 +99,21 @@ export default {
     data() {
         return {
             mostrar: this.customJs || this.customCss,
-            animaticaoSelecionada: 'fade'
+            animaticaoSelecionada: 'fade',
+            alertaAtual: 'info'
         }
     },
 
     computed: {
         capitalizeName() {
             return `${this.transitionName[0].toUpperCase() + this.transitionName.substring(1)}: `
+        },
+
+        classesAlerta() {
+            return {
+                'alert': true, 
+                [`alert-${this.alertaAtual}`]: true
+            }
         }
     },
 
