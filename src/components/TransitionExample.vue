@@ -4,6 +4,12 @@
         <button class="btn btn-primary btn-sm mb-3" @click="mostrar = !mostrar">Alternar</button>
     
         <transition v-if="customCss"
+
+            appear
+            appear-class=""
+            appear-active-class="animate__animated animate__flipInY"
+            appear-to-class=""
+
             enter-class=""
             enter-active-class="animate__animated animate__bounceInLeft"
             enter-to-class=""
@@ -60,7 +66,7 @@ export default {
 
     data() {
         return {
-            mostrar: this.customJs 
+            mostrar: this.customJs || this.customCss
         }
     },
 
