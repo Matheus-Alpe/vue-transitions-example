@@ -12,18 +12,20 @@
                 ref="inputItem">
         </div>
 
-        <transition-group>
+        <transition-group tag="ul" class="list-group" name="list">
 
             <li 
                 class="list-group-item"
                 v-for="(tecnologia, indice) in tecnologias"
                 :key="tecnologia">
+
                     <span>{{ tecnologia }}</span>
                     <button 
                         class="btn btn-danger btn-sm float-right"
                         @click="remover(indice)">
                             x
                     </button>
+
             </li>
 
         </transition-group>
@@ -64,5 +66,15 @@ export default {
 </script>
 
 <style>
+.list-enter,
+.list-leave-to {
+    opacity: 0;
+    transform: translateX(-70px);
+}
+
+.list-enter-active,
+.list-leave-active {
+    transition: all .5s;
+}
 
 </style>
