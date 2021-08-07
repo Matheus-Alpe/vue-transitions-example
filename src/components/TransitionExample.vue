@@ -71,28 +71,62 @@ export default {
 
     methods: {
         beforeEnter(element) {
-            console.log('beforeEnter', element)
+            console.log('beforeEnter')
+            element.style.opacity = 0
         },
+
         enter(element, done) {
-            console.log('enter', element)
-            done()
+            console.log('enter')
+
+            let contagem = 0
+            const intervalo = setInterval(() => {
+                element.style.opacity = +element.style.opacity + 0.1
+                contagem++
+
+                if (contagem > 10) {
+                    clearInterval(intervalo)
+                    done()
+                }
+
+            }, 150)
         },
+
         afterEnter(element) {
             console.log('afterEnter', element)
         },
+
         enterCancelled(element) {
             console.log('enterCancelled', element)
         },
+
         beforeLeave(element) {
-            console.log('beforeLeave', element)
+            console.log('beforeLeave')
+            element.style.transition = 'width .1s'
+            element.style.overflow = 'hidden'
+            element.style.whiteSpace = 'nowrap'
         },
+
         leave(element, done) {
-            console.log('leave', element)
-            done()
+            console.log('leave')
+
+            let contagem = 0
+            const tamanho = element.offsetWidth
+
+            const intervalo = setInterval(() => {
+                element.style.width = (tamanho * (1 - (contagem / 10))) + 'px'
+                contagem++
+
+                if(contagem > 10) {
+                    clearInterval(intervalo)
+                    done()
+                }
+            }, 150)
         },
+
         afterLeave(element) {
             console.log('afterLeave', element)
         },
+
         leaveCancelled(element) {
             console.log('leaveCancelled', element)
         },
