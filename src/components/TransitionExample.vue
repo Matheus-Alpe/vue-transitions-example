@@ -18,6 +18,7 @@
             >v-if - Animações no Vue</div>
         </transition>
         <transition v-else-if="customJs"
+            appear
             @before-enter="beforeEnter"
             @enter="enter"
             @after-enter="afterEnter"
@@ -59,7 +60,7 @@ export default {
 
     data() {
         return {
-            mostrar: false
+            mostrar: this.customJs 
         }
     },
 
